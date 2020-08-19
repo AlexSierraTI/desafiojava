@@ -1,0 +1,7 @@
+FROM dockerfile/java:oracle-java8
+
+VOLUME /tmp
+ADD cliente.cadastro.jar /opt/cliente.cadastro/
+EXPOSE 8080
+WORKDIR /opt/cliente.cadastro/
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-Xms512m", "-Xmx1g", "-jar", "cliente.cadastro.jar"]
